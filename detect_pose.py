@@ -31,7 +31,7 @@ if results.pose_landmarks:
         return int(landmark.x * w), int(landmark.y * h)
 
     # Print key body parts
-    print("\n🧍 Body Landmark Coordinates:")
+    print("\nBody Landmark Coordinates:")
     body_parts = {
         "LEFT_SHOULDER": mp_pose.PoseLandmark.LEFT_SHOULDER,
         "RIGHT_SHOULDER": mp_pose.PoseLandmark.RIGHT_SHOULDER,
@@ -52,7 +52,7 @@ if results.pose_landmarks:
     left_shoulder = coords["LEFT_SHOULDER"]
     right_shoulder = coords["RIGHT_SHOULDER"]
     shoulder_width = abs(left_shoulder[0] - right_shoulder[0])
-    print(f"\n📏 Estimated Shoulder Width (in pixels): {shoulder_width}")
+    print(f"\nEstimated Shoulder Width (in pixels): {shoulder_width}")
 
 else:
-    print("❌ No pose landmarks detected.")
+    print("No pose landmarks detected.")
