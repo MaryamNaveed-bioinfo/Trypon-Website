@@ -7,7 +7,7 @@ import math
 image_path = "captured_photo.jpg"
 image = cv2.imread(image_path)
 if image is None:
-    print("❌ Image not found. Make sure 'captured_photo.jpg' exists.")
+    print(" Image not found. Make sure 'captured_photo.jpg' exists.")
     exit()
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
@@ -18,7 +18,7 @@ results = pose.process(image_rgb)
 
 # Check if landmarks were detected
 if not results.pose_landmarks:
-    print("❌ No pose landmarks detected.")
+    print(" No pose landmarks detected.")
     exit()
 
 # Get landmark coordinates
@@ -46,7 +46,7 @@ left_hip = get_landmark_coords("LEFT_HIP")
 right_hip = get_landmark_coords("RIGHT_HIP")
 hip_width_px = calculate_distance(left_hip, right_hip)
 
-# ⚠️ Set scale (Pixels per cm) — assuming A4 paper (29.7 cm tall = 300px approx)
+# Set scale (Pixels per cm) — assuming A4 paper (29.7 cm tall = 300px approx)
 pixels_per_cm = 300 / 29.7
 
 # Convert to centimeters
@@ -63,5 +63,5 @@ measurements = {
 with open("user_measurements.json", "w") as f:
     json.dump(measurements, f, indent=2)
 
-print("✅ Measurements saved to 'user_measurements.json':")
+print("Measurements saved to 'user_measurements.json':")
 print(json.dumps(measurements, indent=2))
